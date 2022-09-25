@@ -10,19 +10,19 @@ locals {
         approver_ref       = "account.SE_Admin" # TODO: get name dynamically
         delegate_ref       = "cr-tf"            # TODO: get name dynamically
         store_type_ref     = "Github"
-        provisioner_ref    = "<+pipeline.stages.[\"Provisioning\"].variables.[\"provisioner_ref\"]>"
+        provisioner_ref    = "<+stage.variables.provisioner_ref>"
         version            = "0.0.1"
 
         tf_backend = {
-          username = "<+pipeline.stages.[\"Provisioning\"].variables.[\"tf_backend_username\"]>"
-          password = "<+pipeline.stages.[\"Provisioning\"].variables.[\"tf_backend_password\"]>"
-          url      = "<+pipeline.stages.[\"Provisioning\"].variables.[\"tf_backend_url\"]>"
-          repo     = "<+pipeline.stages.[\"Provisioning\"].variables.[\"tf_backend_repo\"]>"
-          subpath  = "<+pipeline.stages.[\"Provisioning\"].variables.[\"tf_backend_subpath\"]>"
+          username = "<+stage.variables.tf_backend_username>"
+          password = "<+stage.variables.tf_backend_password>"
+          url      = "<+stage.variables.tf_backend_url>"
+          repo     = "<+stage.variables.tf_backend_repo>"
+          subpath  = "<+stage.variables.tf_backend_subpath>"
         }
         tf_variables = {
-          harness_platform_api_key    = "<+pipeline.stages.[\"Provisioning\"].variables.[\"harness_platform_api_key\"]>"
-          harness_platform_account_id = "<+pipeline.stages.[\"Provisioning\"].variables.[\"harness_platform_account_id\"]>"
+          harness_platform_api_key    = "<+stage.variables.harness_platform_api_key>"
+          harness_platform_account_id = "<+stage.variables.harness_platform_account_id>"
           # connector_crizstian_github_token      = "<+secrets.getValue(\"connector_crizstian_github_token\")>"
           # connector_crizstian_docker_token      = "<+secrets.getValue(\"connector_crizstian_docker_token\")>"
           # connector_crizstian_artifactory_token = "<+secrets.getValue(\"connector_crizstian_artifactory_token\")>"

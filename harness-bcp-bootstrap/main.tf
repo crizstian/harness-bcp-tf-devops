@@ -19,6 +19,14 @@ module "bootstrap_harness_connector" {
   }
 }
 
+data "harness_platform_secret_text" "harness_secrets" {
+  depends_on = [
+    module.bootstrap_harness_account,
+  ]
+  for_each   = local.harness_platform_secrets
+  identifier = "${lower(replace(each.key, "/[\\s-.]/", "_"))}_1"
+}
+
 resource "harness_platform_secret_text" "harness_secrets" {
   depends_on = [
     module.bootstrap_harness_account,
