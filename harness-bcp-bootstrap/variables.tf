@@ -4,15 +4,15 @@ variable "harness_platform_api_key" {
 variable "harness_platform_account_id" {
   sensitive = true
 }
-# variable "harness_connector_bcp_github_token" {
-#   sensitive = true
-# }
-# variable "harness_connector_bcp_docker_token" {
-#   sensitive = true
-# }
-# variable "harness_connector_bcp_artifactory_token" {
-#   sensitive = true
-# }
+variable "harness_connector_bcp_github_token" {
+  sensitive = true
+}
+variable "harness_connector_bcp_docker_token" {
+  sensitive = true
+}
+variable "harness_connector_bcp_artifactory_token" {
+  sensitive = true
+}
 variable "harness_template_endpoint" {
   default = "https://app.harness.io/gateway/template/api/templates"
 }
