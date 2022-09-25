@@ -19,7 +19,7 @@ variable "harness_template_endpoint" {
 
 locals {
   harness_platform_projects = tomap({
-    "bcp-lab-org" = var.bcp_lab_org_projects
+    "cristian-lab-bcp-org" = var.bcp_lab_org_projects
   })
   harness_platform_connectors = merge(
     local.cristiab_lab_org_connectors
